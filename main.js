@@ -2,7 +2,8 @@ async function buscarSituacao() {
   var p = SpreadsheetApp.getActiveSpreadsheet();
   var base = p.getSheetByName('Base - Situação do pedido')
   var ln = ultimolinhaColuna('Registrado', 1, base)
-  if (base.getRange(ln, 1).getValue() != "") {
+
+  while (base.getRange(ln, 1).getValue() != "") {
 
     var solicitante = base.getRange(ln, 2).getValue()
     var marina = base.getRange(ln, 3).getValue()
@@ -35,9 +36,12 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -49,7 +53,11 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+
+      }
       base.getRange(ln, 9).setValue('OK')
 
     }
@@ -70,9 +78,11 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -84,7 +94,10 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Ribeira") {
@@ -103,9 +116,11 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -117,7 +132,11 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Bracuhy") {
@@ -136,9 +155,13 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -150,7 +173,12 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Itacuruca") {
@@ -169,9 +197,13 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -183,7 +215,10 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Gloria") {
@@ -202,9 +237,11 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -216,7 +253,10 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Paraty") {
@@ -235,9 +275,11 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -249,7 +291,10 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+      }
       base.getRange(ln, 9).setValue('OK')
     }
     if (marina == "Buzios") {
@@ -268,9 +313,11 @@ async function buscarSituacao() {
         if (marina + solicitacao == dados[i][1] + dados[i][2]) {
           sitmarina.getRange(2 + i, 5).setValue(situacao) // Atualizando a situação
           if (situacao == "COMPRADO") { sitmarina.getRange(2 + i, 7).setValue(previsao) }
-          if (situacao == "ENTREGUE") { sitmarina.getRange(2 + i, 8).setValue(validade) }
+          if (situacao == "ENTREGUE") {
+            sitmarina.getRange(2 + i, 7).setValue(previsao)
+            sitmarina.getRange(2 + i, 8).setValue(validade)
+          }
           base.getRange(ln, 9).setValue('OK')
-          return;
         }
       }
       var linha = sitmarina.getLastRow() + 1
@@ -282,9 +329,15 @@ async function buscarSituacao() {
       sitmarina.getRange(linha, 5).setValue(situacao)
       sitmarina.getRange(linha, 6).setValue(comprador)
       if (situacao == "COMPRADO") { sitmarina.getRange(linha, 7).setValue(previsao) }
-      if (situacao == "ENTREGUE") { sitmarina.getRange(linha, 8).setValue(validade) }
+      if (situacao == "ENTREGUE") {
+        sitmarina.getRange(linha, 7).setValue(previsao)
+        sitmarina.getRange(linha, 8).setValue(validade)
+      }
       base.getRange(ln, 9).setValue('OK')
     }
+
+    var ln = ultimolinhaColuna('Registrado', 1, base)
+
   }
 
 }
